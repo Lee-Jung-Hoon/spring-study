@@ -2,21 +2,27 @@ package springbook.user.dao;
 
 import springbook.user.domain.User;
 
-import java.sql.*;
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * Created by kjnam on 2016. 4. 18..
  */
 public class UserDao {
+    private DataSource dataSource;
+
+    public void setDataSource(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
 
     public void add(User user) throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.jdbc.Driver");
-        Connection c = DriverManager.getConnection(
-                "jdbc:mysql://192.168.56.101:3306/testdb"
-                , "testuser", "java41");
+        Connection c = dataSource.getConnection();
 
         PreparedStatement ps = c.prepareStatement(
-          "INSERT INTO users(id, name, password) values(?, ?,? )"
+          "insert into users(id, name, password) values(?, ?,? )"
         );
         ps.setString(1, user.getId());
         ps.setString(2, user.getName());
@@ -29,13 +35,10 @@ public class UserDao {
     }
 
     public User get(String id) throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.jdbc.Driver");
-        Connection c = DriverManager.getConnection(
-                "jdbc:mysql://192.168.56.101:3306/testdb"
-                , "testuser", "java41");
+        Connection c = dataSource.getConnection();
 
         PreparedStatement ps = c.prepareStatement(
-                "SELECT * FROM users WHERE id = ?");
+                "select * from users where id = ?");
         ps.setString(1, id);
 
         ResultSet rs = ps.executeQuery();
@@ -52,4 +55,7 @@ public class UserDao {
 
         return user;
     }
+
+
 }
+
