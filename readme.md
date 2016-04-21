@@ -2,6 +2,9 @@
 
 > [토비의 스프링 3.1](http://book.naver.com/bookdb/book_detail.nhn?bid=7006516) (이일민 저. 에이콘출판. 2010) 을 공부하며 책 내용 중 일부를 요약.
 
+예제 소스를 따라해 본 것은  github에  각 챕터별로 branch를 나눠 커밋하고 있다. (`Java8`, `Spring4.2`)
+> [https://github.com/iamkyu/spring-study/tree/chap02] (https://github.com/iamkyu/spring-study/tree/chap02)
+
 <br>
 일반적인 웹 애플리케이션 개발에서 DAO를 테스트하기 위해서는 서비스, 컨트롤, 뷰 까지 모든 레이어가 완성
 되어야 하는 문제가 있음. 테스트 하고자 하는 대상에만 집중하여 방법에는 단위 테스트를 활용할 수 있음.
