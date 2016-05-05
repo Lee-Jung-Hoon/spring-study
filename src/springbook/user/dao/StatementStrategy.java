@@ -1,12 +1,12 @@
 package springbook.user.dao;
 
+/**
+ * Created by kjnam on 2016. 5. 5..
+ */
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-/**
- * Created by kjnam on 2016. 4. 22..
- */
-public interface StatementsStrategy {
+public interface StatementStrategy {
     PreparedStatement makePreparedStatement(Connection c) throws SQLException;
 }
