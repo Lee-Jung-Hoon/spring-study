@@ -3,7 +3,7 @@
 > [토비의 스프링 3.1](http://book.naver.com/bookdb/book_detail.nhn?bid=7006516) (이일민 저. 에이콘출판. 2010) 을 공부하며 책 내용 중 일부를 요약.
 
 예제 소스를 따라해 본 것은  github에  각 챕터별로 branch를 나눠 커밋하고 있다. (`Java8`, `Spring4.2`)
-> [https://github.com/iamkyu/spring-study/tree/chap03] (https://github.com/iamkyu/spring-study/tree/chap03)
+> [https://github.com/iamkyu/spring-study/tree/chap04] (https://github.com/iamkyu/spring-study/tree/chap04)
 
 <br>
 try - catch 문을 통해 예외를 캐치하는 것은 좋은데, 아무것도 하지 않고 넘어가는 일은 정말 위험한 일이다. 이런 식의 자바 코드가 서적의 예제나 강의에도 심심치 않게 등장한다. 
