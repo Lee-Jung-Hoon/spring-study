@@ -16,4 +16,6 @@ public interface UserDao {
 
     public abstract List<User> getAll();
 
+    public void update(User user);
+
 }
