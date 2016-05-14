@@ -3,11 +3,6 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="userService" class="springbook.user.service.UserServiceTx">
-        <property name="transactionManager" ref="transactionManager"/>
-        <property name="userService" ref="userServiceImpl"/>
-    </bean>
-
     <bean id="userServiceImpl" class="springbook.user.service.UserServiceImpl">
         <property name="userDao" ref="userDao" />
         <property name="mailSender" ref="mailSender" />
@@ -26,6 +21,13 @@
                   value="jdbc:mysql://192.168.56.101:3306/testdb?useUnicode=true&amp;characterEncoding=UTF8&amp;jdbcCompliantTruncation=false&amp;useOldUTF8Behavior=true"></property>
         <property name="username" value="testuser"></property>
         <property name="password" value="java41"></property>
+    </bean>
+
+    <bean id="userService" class="springbook.user.service.TxProxyFactoryBean">
+        <property name="target" ref="userServiceImpl"/>
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="pattern" value="upgradeLevels"/>
+        <property name="serviceInferface" value="springbook.user.service.UserService"/>
     </bean>
 
 </beans>
